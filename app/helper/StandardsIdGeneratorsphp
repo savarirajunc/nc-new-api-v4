@@ -1,0 +1,23 @@
+<?php
+use Phalcon\Tag;
+class StandardsIdGenerators extends Tag
+{
+
+    /**
+     *
+     * @param String $createdFor            
+     * @return NULL
+     */
+    public function getNewId($created_for)
+    {
+        try {
+        $standardidgen = new StandardsIdGenerator();
+	    $standardidgen->created_for=$created_for;
+	    $standardidgen->created_at=date('Y-m-d H:i:s');
+ 	    $standardidgen->save();
+            return $standardidgen->id;
+        } catch (\Exception $e) {
+            throw $e;
+        }
+    }
+}

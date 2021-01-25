@@ -1,0 +1,76 @@
+<?php
+use Phalcon\Mvc\Micro;
+use Phalcon\Validation;
+use Phalcon\Validation\Validator\PresenceOf;
+class ProductController extends \Phalcon\Mvc\Controller {
+	public function index() {
+	}
+	/**
+	 * Fetch all Record from database :-
+	 */
+public function getproductinfobypid()
+{
+
+$input_data = $this->request->getJsonRawBody ();
+
+                                $getgenter = $this->modelsManager->createBuilder ()->columns ( array (
+                                'NidaraKidProfile.gender',
+) )->from ('NidaraKidProfile')
+                ->leftjoin('KidParentsMap','KidParentsMap.nidara_kid_profile_id=NidaraKidProfile.id')
+                ->inwhere('KidParentsMap.id',array($input_data -> users_id))
+                ->getQuery ()->execute ();
+
+$pro=[];
+
+foreach($getgenter as $genderval)
+{
+
+
+if($genderval->genter =='male')
+{
+array_push($pro,'boy');
+}
+else
+{
+array_push($pro,'girl');
+}
+   return $this->response->setJsonContent ( [ 
+                                        'status' => true,
+                                        'Message' =>$productInfo
+                        ] );
+
+
+}
+
+
+
+
+				
+				$productInfo = $this->modelsManager->createBuilder ()->columns ( array (
+				'NCProductPricing.id',
+				'NCProductPricing.product_id',					
+                                'NCProductPricing.product_main_id', 
+                                'NCProductPricing.product_price', 
+                                'NCProductPricing.product_type', 
+
+                                'NCProductPricing.created_date', 
+                                'NCProductPricing.modify_date', 		
+) )->from ('NCProductPricing')
+		->leftjoin('NCProduct','NCProductPricing.product_id = NCProduct.id')
+		->inwhere('NCProduct.product_type',array($pro))
+		->inwhere('NCProduct.product_status',array(1))
+                //->leftjoin('NidaraKidProfile','NidaraKidProfile.id = KidParentsMap.nidara_kid_profile_id')
+		//->inwhere('KidParentsMap',array($input_data -> users_id))
+
+	        ->groupby("NCProductPricing.product_id")		
+		->getQuery ()->execute ();
+				
+		return $this->response->setJsonContent ( [ 
+					'status' => true,
+					'Message' =>$productInfo
+			] );
+
+
+
+}
+

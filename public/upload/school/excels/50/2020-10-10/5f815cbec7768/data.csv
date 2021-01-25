@@ -1,0 +1,8 @@
+NC School Pre-Program Start  Information Request from School V4.0,,,,,,,,,,,,
+This tab gives the full list of parents and children in the school,,,,,,,,,,,,
+,,,,,,,,,,,,
+Parent and Child Information,,,,,,,,,,,,
+Serial Number,School Name,Parent First Name,Parent Last Name,Email Address,Mobile Number (10 digit mobile number without prefixes),Child First Name,Child Last Name,Gender (Girl/ Boy),Child Grade,Child School Roll Number (provided by school),NC Child ID,"Admission Status (Already Admitted, Admission Pending, Admissin Rejected)"
+1,ISB,Raksha,Kapoor,raksha@haselfre.com,9884061120,Pooja1,Kapoor,Girl,Preschool,ISB 001,NC001,Already Admitted
+2,ISB,Raksha,Kapoor,raksha@haselfre.com,9884061120,Sid1,Kapoor,Boy,LKG,ISB 002,NC002,Admission Pending
+3,ISB,Raksha,Kapoor,raksha@haselfre.com,9884061120,Kiran1,Kapoor,Girl,UKG,ISB 003,NC003,Admission Rejected

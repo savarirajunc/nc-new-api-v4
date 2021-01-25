@@ -1,0 +1,12 @@
+{
+    "require": {
+		"spipu/html2pdf": "^5.2",
+        "phpoffice/phpspreadsheet": "^1.12",
+        "mpdf/mpdf": "^8.0",
+        "guzzlehttp/guzzle": "7.0",
+        "microsoft/microsoft-graph": "^1.25",
+        "phpmailer/phpmailer": "^6.2",
+        "lcobucci/jwt": "^4.0",
+        "firebase/php-jwt": "^5.2"
+    }
+}
